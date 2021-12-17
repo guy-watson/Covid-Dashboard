@@ -7,7 +7,6 @@ import sched
 from time import *
 from uk_covid19 import Cov19API
 from flask import request
-from time_conversions import *
 
 with open('config', 'r', encoding='UTF-8')as f:
     config_file = json.load(f)
