@@ -1,9 +1,15 @@
+
 # Covid Dashboard 
 A simple covid dashboard that takes data from the UK Covid API (https://developer.api.nhs.uk/coronavirus/api), process it and displays it. 
 The Dashboard also displays up-to-date and relevant news articles taken from NewsAPI (https://newsapi.org/).
 
 
 
+## Contributing
+
+Feel free to contribute to this code
+
+Visit https://github.com/guy-watson/Covid-Dashboard to contribute 
 ## Authors
 
 - [@guy-watson](https://github.com/guy-watson)
@@ -42,3 +48,4 @@ You will then be directed to the dashboard.
 ## Support
 
 For support, email gw474@exeter.ac.uk
+
