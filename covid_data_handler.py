@@ -3,7 +3,11 @@ then that data is parsed and processed to generate figures used
 in the main interface'''
 import csv
 import json
+import sched
+from time import *
 from uk_covid19 import Cov19API
+from flask import request
+from time_conversions import *
 
 with open('config', 'r', encoding='UTF-8')as f:
     config_file = json.load(f)
@@ -12,7 +16,7 @@ with open('config', 'r', encoding='UTF-8')as f:
     print(national_path)
 
 
-def parse_csv_data(csv_filename):
+def parse_csv_data(csv_filename) -> list:
     '''parses csv data '''
     covid_csv_data = []
     with open(csv_filename, 'r', encoding='UTF-8') as covid_data_file:
@@ -22,7 +26,7 @@ def parse_csv_data(csv_filename):
         return covid_csv_data
 
 
-def process_covid_csv_data(covid_csv_data):
+def process_covid_csv_data(covid_csv_data) -> int:
     '''gets cases in last 7 days, hospital cases,
     and total deaths from parsed csv file'''
     for data_line in covid_csv_data[1:2]:
@@ -62,7 +66,7 @@ def process_covid_csv_data(covid_csv_data):
     return current_hospital_cases, last7days_cases, total_deaths
 
 
-def covid_API_request(location='exeter', location_type='ltla'):
+def covid_API_request(location='exeter', location_type='ltla') -> None:
     '''takes data from the covid api'''
     exeter_filter = [
         'areaType=' + location_type,
@@ -87,7 +91,7 @@ def covid_API_request(location='exeter', location_type='ltla'):
     return data
 
 
-def covid_api_request_national(location='england', location_type='nation'):
+def covid_api_request_national(location='england', location_type='nation') -> None:
     '''api request that returns national data only'''
     national_filter = [
         'areaType=' + location_type,
@@ -113,4 +117,4 @@ def covid_api_request_national(location='england', location_type='nation'):
 
 
 covid_api_request_national()
-print(process_covid_csv_data(parse_csv_data('covid_data_national.csv')))
+print(process_covid_csv_data(parse_csv_data('nation_2021-10-28.csv')))
