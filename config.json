@@ -1,0 +1,12 @@
+{
+
+"api-keys":{
+    "news":"a89c7a9fc4ed4d03bddb136f115f3d27"
+    },
+
+"filepaths":{
+    "covid-data-national":"venv\\covid_data\\covid_data_national.csv",
+    "covid-data-local":"venv\\covid_data\\covid_data.csv"
+    }
+  
+}
